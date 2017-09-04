@@ -1,8 +1,8 @@
 <?php
 namespace App\Http\Controllers\WebChat;
-use Illuminate\Support\Facades\Request;
-use App\Http\Controllers;
-class WebChatController extends Controllers{
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+class WebChatController extends Controller{
     const token = 'ykk123';
     public function check(Request $request){
         $timestamp = $request->input('timestamp');
