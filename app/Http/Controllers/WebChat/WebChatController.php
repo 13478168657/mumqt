@@ -17,4 +17,8 @@ class WebChatController extends Controller{
             exit;
         }
     }
+    public function create(Request $request){
+        echo 'sdfs';
+        exit;
+    }
 }
