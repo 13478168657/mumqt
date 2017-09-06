@@ -6,7 +6,7 @@ use Log;
 class WebChatController extends Controller{
     const token = 'ykk123';
     public function check(Request $request){
-        $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
+        $postStr = file_get_contents("php://input");
         Log::error(json_decode($postStr));
         if (!empty($postStr)){
             libxml_disable_entity_loader(true);
