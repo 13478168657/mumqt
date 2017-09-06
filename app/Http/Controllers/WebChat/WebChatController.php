@@ -2,10 +2,12 @@
 namespace App\Http\Controllers\WebChat;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Log;
 class WebChatController extends Controller{
     const token = 'ykk123';
     public function check(Request $request){
         $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
+        Log::error(json_decode($postStr));
         if (!empty($postStr)){
             libxml_disable_entity_loader(true);
             $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
