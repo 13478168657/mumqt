@@ -5,7 +5,6 @@ use App\Http\Controllers\Controller;
 class WebChatController extends Controller{
     const token = 'ykk123';
     public function check(Request $request){
-
         $file_path = storage_path().'/logs/webChart.txt';
         $handle = fopen($file_path,'a');
         fwrite($handle,'sdsf');
@@ -21,10 +20,6 @@ class WebChatController extends Controller{
 //            echo $echostr;
 //            exit;
 //        }
-        $this->responseMsg($request);
-    }
-    public function responseMsg($request)
-    {
         //get post data, May be due to the different environments
         $postStr = isset($GLOBALS['HTTP_RAW_POST_DATA']) ? $GLOBALS['HTTP_RAW_POST_DATA'] : file_get_contents("php://input");
         //extract post data
