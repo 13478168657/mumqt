@@ -6,7 +6,7 @@ class WebChatController extends Controller{
     const token = 'ykk123';
     public function check(Request $request){
 
-        $file_path = storage_path().'logs/webChart.txt';
+        $file_path = storage_path().'/logs/webChart.txt';
         $handle = fopen($file_path,'a');
         fwrite($handle,'sdsf');
         fclose($handle);
@@ -33,9 +33,9 @@ class WebChatController extends Controller{
                the best way is to check the validity of xml by yourself */
             libxml_disable_entity_loader(true);
             $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
-            $fromUsername = $request->input('FromUserName');
-            $toUsername = $request->input(ToUserName;
-            $keyword = trim($request->Content);
+            $fromUsername = $postStr->FromUserName;
+            $toUsername = $postStr->ToUserName;
+            $keyword = trim($postStr->Content);
             $time = time();
             $textTpl = "<xml>
 							<ToUserName><![CDATA[%s]]></ToUserName>
