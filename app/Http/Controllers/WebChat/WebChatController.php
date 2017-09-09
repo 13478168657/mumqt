@@ -5,6 +5,11 @@ use App\Http\Controllers\Controller;
 class WebChatController extends Controller{
     const token = 'ykk123';
     public function check(Request $request){
+
+        $file_path = storage_path().'logs/webChart.txt';
+        $handle = fopen($file_path,'a');
+        fwrite($handle,'sdsf');
+        fclose($handle);
 //        $timestamp = $request->input('timestamp');
 //        $nonce = $request->input('nonce');
 //        $echostr = $request->input('echostr');
@@ -16,9 +21,9 @@ class WebChatController extends Controller{
 //            echo $echostr;
 //            exit;
 //        }
-        $this->responseMsg();
+        $this->responseMsg($request);
     }
-    public function responseMsg()
+    public function responseMsg($request)
     {
         //get post data, May be due to the different environments
         $postStr = isset($GLOBALS['HTTP_RAW_POST_DATA']) ? $GLOBALS['HTTP_RAW_POST_DATA'] : file_get_contents("php://input");
@@ -28,9 +33,9 @@ class WebChatController extends Controller{
                the best way is to check the validity of xml by yourself */
             libxml_disable_entity_loader(true);
             $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
-            $fromUsername = $postObj->FromUserName;
-            $toUsername = $postObj->ToUserName;
-            $keyword = trim($postObj->Content);
+            $fromUsername = $request->input('FromUserName');
+            $toUsername = $request->input(ToUserName;
+            $keyword = trim($request->Content);
             $time = time();
             $textTpl = "<xml>
 							<ToUserName><![CDATA[%s]]></ToUserName>
