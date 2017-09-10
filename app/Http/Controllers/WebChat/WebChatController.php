@@ -5,20 +5,17 @@ use App\Http\Controllers\Controller;
 class WebChatController extends Controller{
     const token = 'ykk215';
     public function check(Request $request){
-        $timestamp = $request->input('timestamp');
-        $nonce = $request->input('nonce');
-        $echostr = $request->input('echostr');
-        $signature = $request->input('signature');
-        $arr = [$timestamp,$nonce,self::token];
-        sort($arr);
-        $str = implode('',$arr);
-        if(sha1($str) == $signature){
-            echo $echostr;
-            exit;
-        }
-    }
-    public function responseMsg()
-    {
+//        $timestamp = $request->input('timestamp');
+//        $nonce = $request->input('nonce');
+//        $echostr = $request->input('echostr');
+//        $signature = $request->input('signature');
+//        $arr = [$timestamp,$nonce,self::token];
+//        sort($arr);
+//        $str = implode('',$arr);
+//        if(sha1($str) == $signature){
+//            echo $echostr;
+//            exit;
+//        }
         //get post data, May be due to the different environments
         $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
 
