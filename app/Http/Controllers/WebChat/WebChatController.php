@@ -3,34 +3,34 @@ namespace App\Http\Controllers\WebChat;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 class WebChatController extends Controller{
-    const token = 'ykk123';
+    const token = 'ykk215';
     public function check(Request $request){
-        $file_path = storage_path().'/logs/webChart.txt';
-        $handle = fopen($file_path,'a');
-        fwrite($handle,'sdsf');
-        fclose($handle);
-//        $timestamp = $request->input('timestamp');
-//        $nonce = $request->input('nonce');
-//        $echostr = $request->input('echostr');
-//        $signature = $request->input('signature');
-//        $arr = [$timestamp,$nonce,self::token];
-//        sort($arr);
-//        $str = implode('',$arr);
-//        if(sha1($str) == $signature){
-//            echo $echostr;
-//            exit;
-//        }
+        $timestamp = $request->input('timestamp');
+        $nonce = $request->input('nonce');
+        $echostr = $request->input('echostr');
+        $signature = $request->input('signature');
+        $arr = [$timestamp,$nonce,self::token];
+        sort($arr);
+        $str = implode('',$arr);
+        if(sha1($str) == $signature){
+            echo $echostr;
+            exit;
+        }
+    }
+    public function responseMsg()
+    {
         //get post data, May be due to the different environments
-        $postStr = isset($GLOBALS['HTTP_RAW_POST_DATA']) ? $GLOBALS['HTTP_RAW_POST_DATA'] : file_get_contents("php://input");
+        $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
+
         //extract post data
         if (!empty($postStr)){
             /* libxml_disable_entity_loader is to prevent XML eXternal Entity Injection,
                the best way is to check the validity of xml by yourself */
             libxml_disable_entity_loader(true);
             $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
-            $fromUsername = $postStr->FromUserName;
-            $toUsername = $postStr->ToUserName;
-            $keyword = trim($postStr->Content);
+            $fromUsername = $postObj->FromUserName;
+            $toUsername = $postObj->ToUserName;
+            $keyword = trim($postObj->Content);
             $time = time();
             $textTpl = "<xml>
 							<ToUserName><![CDATA[%s]]></ToUserName>
