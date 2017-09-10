@@ -13,13 +13,13 @@ class VerifyCsrfToken extends BaseVerifier
      */
     protected $except = [
         
-        'login', //首页取消多次CsrfToken验证
-        'yzmobile',
-        '/webChat/check',
+//        'login', //首页取消多次CsrfToken验证
+//        'yzmobile',
+        'webChat/check',
         /*搜索列表*/
-        'build/*',
-        'house/*',
-        /*api接口*/
-        'api/100',
+//        'build/*',
+//        'house/*',
+//        /*api接口*/
+//        'api/100',
     ];
 }

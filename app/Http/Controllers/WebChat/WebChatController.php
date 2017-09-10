@@ -29,6 +29,7 @@ class WebChatController extends Controller{
 //            echo $echostr;
 //            exit;
 //        }
+        dd(1);
         //get post data, May be due to the different environments
         $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
         file_put_contents('1.txt','sfsf');
