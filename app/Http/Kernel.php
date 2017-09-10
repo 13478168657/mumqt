@@ -17,7 +17,7 @@ class Kernel extends HttpKernel
          \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
          \Illuminate\Session\Middleware\StartSession::class,
          \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-//        \App\Http\Middleware\VerifyCsrfToken::class,
+        \App\Http\Middleware\VerifyCsrfToken::class,
 //      \App\Http\Middleware\UserPermAuth::class,   //用户角色权限验证
         // \App\Http\Middleware\CookieCity::class, //修改域名前缀
         // \App\Http\Middleware\IsMobile::class    //判断是否是手机端访问
