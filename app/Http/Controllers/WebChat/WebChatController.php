@@ -31,7 +31,7 @@ class WebChatController extends Controller{
 //        }
         //get post data, May be due to the different environments
         $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
-
+        file_put_contents('1.txt','sfsf');
         //extract post data
         if (!empty($postStr)){
             /* libxml_disable_entity_loader is to prevent XML eXternal Entity Injection,
