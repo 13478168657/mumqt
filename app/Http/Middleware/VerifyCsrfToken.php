@@ -15,29 +15,7 @@ class VerifyCsrfToken extends BaseVerifier
         
         'login', //首页取消多次CsrfToken验证
         'yzmobile',
-        'register',
-        'dataport',
-        'auth/register',
-        
-        'interface/posthouse',
-        'interface/inserthouse1',
-        'interface/inserthouse2',
-        'interface/houseimg1',
-        'interface/houseimg2',
-//         'ajax/virtualphone/getDisplayNbr',
-        'upload/addphoto',
-        'upload/delphoto',
-        'saleHouse',
-        'autoLogin',
-        'autoRegister',
-        'houseBuyHelp/Zz',
-        'houseBuyHelp/Shop',
-        'houseBuyHelp/Office',
-        'houseSaleHelp/Zz',
-        'houseSaleHelp/Shop',
-        'houseSaleHelp/Office',
-        'errorCorrection',
-
+        '/webChat/check',
         /*搜索列表*/
         'build/*',
         'house/*',
