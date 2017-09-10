@@ -9,5 +9,5 @@ Route::get('/article/detail/{id}','Article\ArticleController@detail');
 Route::get('/article/create','Article\ArticleController@create');
 Route::post('/article/postCreate','Article\ArticleController@postCreate');
 Route::post('/webChat/check','WebChat\WebChatController@check');
-Route::post('/webChat/index','WebChat\WebChatController@index');
+Route::match(['get', 'post'],'/webChat/index','WebChat\WebChatController@index');
 Route::get('/menu/create','WebChat\WebChatController@create');
