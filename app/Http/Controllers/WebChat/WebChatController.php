@@ -42,19 +42,35 @@ class WebChatController extends Controller{
             $toUsername = $postObj->ToUserName;
             $keyword = trim($postObj->Content);
             $time = time();
+//            $textTpl = "<xml>
+//							<ToUserName><![CDATA[%s]]></ToUserName>
+//							<FromUserName><![CDATA[%s]]></FromUserName>
+//							<CreateTime>%s</CreateTime>
+//							<MsgType><![CDATA[%s]]></MsgType>
+//							<Content><![CDATA[%s]]></Content>
+//							<FuncFlag>0</FuncFlag>
+//							</xml>";
             $textTpl = "<xml>
-							<ToUserName><![CDATA[%s]]></ToUserName>
-							<FromUserName><![CDATA[%s]]></FromUserName>
-							<CreateTime>%s</CreateTime>
-							<MsgType><![CDATA[%s]]></MsgType>
-							<Content><![CDATA[%s]]></Content>
-							<FuncFlag>0</FuncFlag>
-							</xml>";
+                            <ToUserName><![CDATA[%s]]></ToUserName>
+                            <FromUserName><![CDATA[%s]]></FromUserName>
+                            <CreateTime>%s</CreateTime>
+                            <MsgType><![CDATA[%s]]></MsgType>
+                            <ArticleCount>1</ArticleCount>
+                            <Articles>
+                            <item>
+                            <Title><![CDATA[%s]]></Title>
+                            <Description><![CDATA[%s]]></Description>
+                            <PicUrl><![CDATA[%s]]></PicUrl>
+                            <Url><![CDATA[%s]]></Url>
+                            </item>
+                            <item>
+                            </Articles>
+                        </xml>";
             $evt = $postObj->Event;
             if($evt == 'subscribe'){
                 $msgType = "text";
                 $contentStr = '感谢关注！';
-                $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr,'http://yirudangchu.com/article/detail/25');
                 echo $resultStr;
                 exit;
             }
@@ -77,7 +93,7 @@ class WebChatController extends Controller{
                         $contentStr = "你好！想了解更多？请按如下提升操作：输入1：男人福利；输入2：优惠套餐；输入3：你爱玩";
                 }
                 $msgType = "text";
-                $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr,'育婴教育','http://yirudangchu.com/images/banner.jpg','');
                 echo $resultStr;
             }else{
                 echo "Input something...";
