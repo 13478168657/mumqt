@@ -55,10 +55,13 @@ class WebChatController extends Controller{
                 switch($keyword){
                     case "1":
                         $contentStr = '男人福利';
+                        break;
                     case "2":
                         $contentStr = '优惠套餐';
+                        break;
                     case "3":
                         $contentStr = "你爱玩";
+                        break;
                     default:
                         $contentStr = "你好！想了解更多？请按如下提升操作：输入1：男人福利；输入2：优惠套餐；输入3：你爱玩";
                 }
