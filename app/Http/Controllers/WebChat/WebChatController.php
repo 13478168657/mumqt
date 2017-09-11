@@ -62,6 +62,9 @@ class WebChatController extends Controller{
                     case "3":
                         $contentStr = "你爱玩";
                         break;
+                    case "4":
+                        $contentStr = "<a href='www.baidu.com'>百度</a>";
+                        break;
                     default:
                         $contentStr = "你好！想了解更多？请按如下提升操作：输入1：男人福利；输入2：优惠套餐；输入3：你爱玩";
                 }
