@@ -31,7 +31,7 @@ class WebChatController extends Controller{
 //        }
         //get post data, May be due to the different environments
         $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
-        file_put_contents('1.txt','sfsf');
+        file_put_contents('1.txt',$postStr);
         //extract post data
         if (!empty($postStr)){
             /* libxml_disable_entity_loader is to prevent XML eXternal Entity Injection,
@@ -52,6 +52,16 @@ class WebChatController extends Controller{
 							</xml>";
             if(!empty( $keyword ))
             {
+                switch($keyword){
+                    case "1":
+                        $contentStr = '男人福利';
+                    case "2":
+                        $contentStr = '优惠套餐';
+                    case "3":
+                        $contentStr = "你爱玩";
+                    default:
+                        $contentStr = "你好！想了解更多？请按如下提升操作：输入1：男人福利；输入2：优惠套餐；输入3：你爱玩";
+                }
                 $msgType = "text";
                 $contentStr = "Welcome to wechat world!";
                 $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
