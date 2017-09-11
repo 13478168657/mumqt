@@ -56,6 +56,7 @@ class WebChatController extends Controller{
                 $contentStr = '感谢关注！';
                 $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                 echo $resultStr;
+                exit;
             }
             if(!empty( $keyword ))
             {
