@@ -92,8 +92,8 @@ class WebChatController extends Controller{
                     default:
                         $contentStr = "你好！想了解更多？请按如下提升操作：输入1：男人福利；输入2：优惠套餐；输入3：你爱玩";
                 }
-                $msgType = "text";
-                $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr,'育婴教育','http://yirudangchu.com/images/banner.jpg','');
+                $msgType = "news";
+                $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr,'育婴教育','http://yirudangchu.com/images/banner.jpg','http://yirudangchu.com/article/detail/25');
                 echo $resultStr;
             }else{
                 echo "Input something...";
