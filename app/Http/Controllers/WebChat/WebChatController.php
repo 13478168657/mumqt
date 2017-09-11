@@ -50,6 +50,13 @@ class WebChatController extends Controller{
 							<Content><![CDATA[%s]]></Content>
 							<FuncFlag>0</FuncFlag>
 							</xml>";
+            $evt = $postObj->Event;
+            if($evt == 'subscribe'){
+                $msgType = "text";
+                $contentStr = '感谢关注！';
+                $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                echo $resultStr;
+            }
             if(!empty( $keyword ))
             {
                 switch($keyword){
