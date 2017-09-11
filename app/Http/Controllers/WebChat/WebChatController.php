@@ -66,14 +66,14 @@ class WebChatController extends Controller{
                             <item>
                             </Articles>
                         </xml>";
-            $evt = $postObj->Event;
-            if($evt == 'subscribe'){
-                $msgType = "text";
-                $contentStr = '感谢关注！';
-                $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr,'http://yirudangchu.com/article/detail/25');
-                echo $resultStr;
-                exit;
-            }
+//            $evt = $postObj->Event;
+//            if($evt == 'subscribe'){
+//                $msgType = "text";
+//                $contentStr = '感谢关注！';
+//                $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr,'http://yirudangchu.com/article/detail/25');
+//                echo $resultStr;
+//                exit;
+//            }
             if(!empty( $keyword ))
             {
                 switch($keyword){
