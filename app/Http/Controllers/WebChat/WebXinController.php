@@ -5,12 +5,14 @@ use App\Http\Controllers\Controller;
 class WebXinController extends Controller{
     const token = 'ykk521';
     public function index(Request $request){
+        $log = json_encode($_GET);
+        file_put_contents('1.txt',$log);
         $timestamp = $request->input('timestamp');
         $nonce = $request->input('nonce');
         $echostr = $request->input('echostr');
         $signature = $request->input('signature');
         $arr = [$timestamp,$nonce,self::token];
-        sort($arr);
+        sort($arr,SORT_STRING);
         $str = implode('',$arr);
         if(sha1($str) == $signature){
            echo $echostr;
