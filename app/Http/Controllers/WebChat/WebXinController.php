@@ -13,7 +13,7 @@ class WebXinController extends Controller{
         sort($arr);
         $str = implode('',$arr);
         if(sha1($str) == $signature){
-           return true;
+           return $echostr;
         }else{
             return false;
         }
