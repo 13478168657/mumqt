@@ -10,5 +10,5 @@ Route::get('article/create','Article\ArticleController@create');
 Route::post('article/postCreate','Article\ArticleController@postCreate');
 Route::post('webChat/check','WebChat\WebChatController@check');
 Route::match(['get', 'post'],'WebChat/index','WebChat\WebChatController@index');
-Route::get('weixin/index','WebChat\WebXinController@index');
+Route::get('weiXin/index','WebChat\WebXinController@index');
 Route::get('menu/create','WebChat\WebChatController@create');
